@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   get "/new_recipe", to: "recipes#new_recipe_method"
   post "/new_recipe_result", to: "recipes#new_recipe_result_method"
+
+  get "/recipes", to: "recipes#index"
 end
