@@ -1,20 +1,5 @@
 class RecipesController < ApplicationController
 
-  def first_recipe_method
-    @recipe = Recipe.first
-    render "recipe.html.erb"
-  end
-
-  def new_recipe_method
-    render "new_recipe_form.html.erb"
-  end
-
-  def new_recipe_result_method
-    @recipe = Recipe.new(title: params[:title], chef: params[:input_chef], ingredients: params[:input_ingredients], directions: params[:input_directions])
-    @recipe.save
-    render "new_recipe_result_view.html.erb"
-  end
-
   def index
     @recipes = Recipe.all
     render "index.html.erb"
@@ -23,5 +8,33 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find_by(id: params[:id])
     render "show.html.erb"
+  end
+
+  def new
+    render "new.html.erb"
+  end
+
+  def create
+    @recipe = Recipe.new(title: params[:title], chef: params[:chef], ingredients: params[:ingredients], directions: params[:directions])
+    @recipe.save
+
+    @recipe = Recipe.create(title: params[:title], chef: params[:chef], ingredients: params[:ingredients], directions: params[:directions])
+    render "create.html.erb"
+  end
+
+  def edit
+    @recipe = Recipe.find_by(id: params[:id])
+    render "edit.html.erb"
+  end
+
+  def update
+    @recipe = Recipe.find_by(id: params[:id])
+    @recipe.assign_attributes(title: params[:title], chef: params[:chef], ingredients: params[:ingredients], directions: params[:directions])
+    @recipe.save
+    # @recipe.title = params[:title]
+    # @recipe.chef = params[:chef]
+    # @recipe.ingredients = params[:ingredients]
+    # @recipe.directions = params[:directions]
+    render "update.html.erb"
   end
 end

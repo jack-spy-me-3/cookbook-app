@@ -1,6 +1,4 @@
-<h1>Enter a new recipe:</h1>
-
-<%= form_tag "/new_recipe_result", method: :post do %>
+<%= form_tag "/recipes", method: :post do %>
   <div>
     <label for="input_title">Title</label>
     <input type="text" name="title">
@@ -8,20 +6,20 @@
 
   <div>
     Chef: 
-    <input type="text" name="input_chef">
+    <input type="text" name="chef">
   </div>
 
   <div>
     Ingredients:
-    <input type="text" name="input_ingredients">
+    <input type="text" name="ingredients">
   </div>
 
   <div>
     Directions:
-    <input type="text" name="input_directions">
+    <input type="text" name="directions">
   </div>
 
   <div>
     <input type="submit" value="Add Recipe!">
   </div>
-<% end  %>
+<% end %>
