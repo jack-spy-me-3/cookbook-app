@@ -31,10 +31,16 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find_by(id: params[:id])
     @recipe.assign_attributes(title: params[:title], chef: params[:chef], ingredients: params[:ingredients], directions: params[:directions])
     @recipe.save
+    render "update.html.erb"
     # @recipe.title = params[:title]
     # @recipe.chef = params[:chef]
     # @recipe.ingredients = params[:ingredients]
     # @recipe.directions = params[:directions]
-    render "update.html.erb"
+  end
+
+  def destroy
+    @recipe = Recipe.find_by(id: params[:id])
+    @recipe.destroy
+    render "destroy.html.erb"
   end
 end

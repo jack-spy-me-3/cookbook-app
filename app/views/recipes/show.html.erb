@@ -2,3 +2,6 @@
 <p>Chef: <%= @recipe.chef %></p>
 <p>Ingredients: <%= @recipe.ingredients %></p>
 <p>Directions: <%= @recipe.directions %></p>
+<%= form_tag "/recipes/#{@recipe.id}", method: :delete do %>
+  <input type="submit" value="Destroy Recipe">
+<% end %>
