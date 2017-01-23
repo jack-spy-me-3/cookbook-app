@@ -17,8 +17,6 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(title: params[:title], chef: params[:chef], ingredients: params[:ingredients], directions: params[:directions])
     @recipe.save
-
-    @recipe = Recipe.create(title: params[:title], chef: params[:chef], ingredients: params[:ingredients], directions: params[:directions])
     render "create.html.erb"
   end
 
