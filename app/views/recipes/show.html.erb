@@ -3,6 +3,7 @@
   <p>Chef: <%= @recipe.chef %></p>
   <p>Ingredients: <%= @recipe.ingredients %></p>
   <p>Directions: <%= @recipe.directions %></p>
+  <p><%= link_to "Edit Me", "/recipes/#{@recipe.id}/edit", method: :get %></p>
   <p><%= link_to "Delete Me", "/recipes/#{@recipe.id}", method: :delete %></p>
 <% else %>
   <p>You messed up really badly........</p>
