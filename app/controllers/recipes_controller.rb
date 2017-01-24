@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find_by(id: params[:id])
+    @are_you_right = true
     render "show.html.erb"
   end
 
@@ -17,7 +18,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(title: params[:title], chef: params[:chef], ingredients: params[:ingredients], directions: params[:directions])
     @recipe.save
-    render "create.html.erb"
+    redirect_to "/recipes/#{@recipe.id}"
   end
 
   def edit
