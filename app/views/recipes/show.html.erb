@@ -1,7 +1,12 @@
 <% if @are_you_right %>
   <p>Title: <%= @recipe.title %></p>
   <p>Chef: <%= @recipe.chef %></p>
-  <p>Ingredients: <%= @recipe.ingredients %></p>
+  <p>Ingredients:</p>
+  <ul>
+     <% @recipe.ingredients_list.each do |ingredient| %>
+        <li><%= ingredient %></li>
+      <% end %>
+  </ul>
   <p>Directions: <%= @recipe.directions %></p>
   <p><%= link_to "Edit Me", "/recipes/#{@recipe.id}/edit", method: :get %></p>
   <p><%= link_to "Delete Me", "/recipes/#{@recipe.id}", method: :delete %></p>

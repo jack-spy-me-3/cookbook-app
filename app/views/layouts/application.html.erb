@@ -27,7 +27,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="active"><a href="/recipes/new">New Recipe <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Link</a></li>
+            <li><a href="javascript:void(0)">Link</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -70,7 +70,9 @@
         <%= message %>
       </div>
     <% end %>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
     <h1>Contact me at sami@cookr.com</h1>
   </body>
 </html>
