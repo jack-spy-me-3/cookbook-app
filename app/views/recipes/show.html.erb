@@ -8,6 +8,7 @@
       <% end %>
   </ul>
   <p>Directions: <%= @recipe.directions %></p>
+  <p>Added by: <%= @recipe.user.name %></p>
   <p><%= link_to "Edit Me", "/recipes/#{@recipe.id}/edit", method: :get %></p>
   <p><%= link_to "Delete Me", "/recipes/#{@recipe.id}", method: :delete %></p>
 <% else %>
